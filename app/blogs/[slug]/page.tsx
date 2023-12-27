@@ -53,7 +53,9 @@ export default function GetPosts({ params }: { params: any }) {
             (el: any) =>
               el &&
               // el.slug && (
-              el.slug == params.slug && (
+              el.slug == params.slug &&
+              (console.log(el),
+              (
                 <div
                   className="relative flex items-end justify-start w-full text-left bg-center bg-cover cursor-pointer h-96 group dark:bg-gray-500"
                   style={{
@@ -86,7 +88,7 @@ export default function GetPosts({ params }: { params: any }) {
                     </a>
                   </h2>
                 </div>
-              )
+              ))
           )}
         </div>
       </div>
