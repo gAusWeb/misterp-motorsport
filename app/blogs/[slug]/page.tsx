@@ -41,10 +41,10 @@ export default function GetPosts({ params }: { params: any }) {
   return (
     <div>
       <Link
-        href="/"
+        href="/blogs"
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
-        Home
+        Blogs
       </Link>
       <br />
       <div className="max-w-screen-xl p-5 mx-auto dark:bg-gray-800 dark:text-gray-100">
@@ -57,7 +57,7 @@ export default function GetPosts({ params }: { params: any }) {
                 <div
                   className="relative flex items-end justify-start w-full text-left bg-center bg-cover cursor-pointer h-96 group dark:bg-gray-500"
                   style={{
-                    backgroundImage: `url(${el.frontmatter.image})`,
+                    backgroundImage: `url(${el.frontmatter.coverImage})`,
                   }}
                 >
                   <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b dark:via-transparent dark:from-gray-900 dark:to-gray-900"></div>
