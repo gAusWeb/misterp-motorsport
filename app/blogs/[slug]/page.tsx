@@ -48,7 +48,7 @@ export default function GetPosts({ params }: { params: any }) {
       </Link>
       <br />
       <div className="max-w-screen-xl p-5 mx-auto dark:bg-gray-800 dark:text-gray-100">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-4 lg:grid-rows-2">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-0 lg:grid-rows-2">
           {posts.map(
             (el: any) =>
               el &&
@@ -79,13 +79,16 @@ export default function GetPosts({ params }: { params: any }) {
                     </div>
                   </div>
                   <h2 className="z-10 p-5">
-                    <a
+                    {/* <a
                       rel="noopener noreferrer"
                       href="#"
                       className="font-medium text-md group-hover:underline dark:text-gray-100"
                     >
                       {el.frontmatter.title}
-                    </a>
+                    </a> */}
+                    <Link href={`/blogs/${el.slug}`}>
+                      {el.frontmatter.title}
+                    </Link>
                   </h2>
                 </div>
               ))

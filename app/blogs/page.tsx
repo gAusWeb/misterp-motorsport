@@ -67,7 +67,7 @@ export default function GetPosts({ params }: { params: any }) {
       </Link>
       <br />
       <div className="max-w-screen-xl p-5 mx-auto dark:bg-gray-800 dark:text-gray-100">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-0 lg:grid-rows-2">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-4 lg:grid-rows-2">
           {posts.map(
             (el: any) =>
               el &&
