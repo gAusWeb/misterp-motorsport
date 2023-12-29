@@ -1,23 +1,16 @@
 import fs from "fs";
 import matter from "gray-matter";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
-export default function Page({ params }: { params: { slug: string } }) {
-  const posts = fs.readdirSync("./app/blogs").map((filename) => {
-    if (filename.split(".").pop() !== "md" && filename !== undefined) return;
-    const slug = filename.replace(".md", "");
-    const markdownWithMetadata = fs
-      .readFileSync(`./app/blogs/${filename}`)
-      .toString();
-    const { data, content } = matter(markdownWithMetadata);
-    const frontmatter = {
-      ...data,
-      slug,
-    };
-    return {
-      slug,
-      frontmatter,
-      content,
-    };
-  });
-  return <div>My Post: {params.slug}</div>;
+export default async function Page({ params }: { params: { slug: string } }) {
+  // async function RemoteMdxPage() {
+  // MDX text - can be from a local file, database, CMS, fetch, anywhere...
+  const res = await fetch(
+    "https://raw.githubusercontent.com/gAusWeb/misterp-motorsport/main/app/blogs/2nd-blog.md"
+  );
+  const markdown = await res.text();
+  return <MDXRemote source={markdown} />;
+  // }
+
+  // return <div>My Post: {params.slug}<br /></div>;
 }
