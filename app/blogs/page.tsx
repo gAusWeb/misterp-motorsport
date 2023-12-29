@@ -35,7 +35,7 @@
 
 import fs from "fs";
 import matter from "gray-matter";
-import { MDXRemote } from "next-mdx-remote/rsc";
+// import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 // import { MDXRemote } from 'next-mdx-remote/rsc'
 
@@ -48,15 +48,15 @@ import Link from "next/link";
 
 export default async function GetPosts({ params }: { params: any }) {
   // MDX text - can be from a local file, database, CMS, fetch, anywhere...
-  const getPageBlogContent = async (slug: any) => {
-    "use server";
-    const res = await fetch(
-      `https://github.com/gAusWeb/misterp-motorsport/blob/main/app/blogs/${slug}.md`
-    );
-    const markdown = await res.text();
-    const processedMarkdown = <MDXRemote source={markdown} />;
-    return processedMarkdown;
-  };
+  // const getPageBlogContent = async (slug: any) => {
+  //   "use server";
+  //   const res = await fetch(
+  //     `https://github.com/gAusWeb/misterp-motorsport/blob/main/app/blogs/${slug}.md`
+  //   );
+  //   const markdown = await res.text();
+  //   const processedMarkdown = <MDXRemote source={markdown} />;
+  //   return processedMarkdown;
+  // };
 
   // get all md files from ./../blogs dynamically using their filename as the url slug and the file contents as the page content
   const posts = fs.readdirSync("./app/blogs").map((filename) => {

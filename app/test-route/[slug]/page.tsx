@@ -1,6 +1,7 @@
 import fs from "fs";
 import matter from "gray-matter";
 import { compileMDX } from "next-mdx-remote/rsc";
+import Link from "next/link";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   // async function RemoteMdxPage() {
@@ -25,6 +26,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
   });
   return (
     <>
+      <Link
+        href="/test-route"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Back to Blogs
+      </Link>
       <h1>{frontmatter.title}</h1>
       <img src={frontmatter.coverImage} alt="" />
       {content}
