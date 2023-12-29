@@ -10,6 +10,7 @@ const nextConfig = {
       "s19533.pcdn.co",
       "www.streetmachine.com.au",
       "www.litchfieldmotors.com",
+      "cdn.pixabay.com",
     ],
   },
 };
