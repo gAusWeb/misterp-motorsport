@@ -1,16 +1,63 @@
 import fs from "fs";
 import matter from "gray-matter";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { compileMDX } from "next-mdx-remote/rsc";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   // async function RemoteMdxPage() {
   // MDX text - can be from a local file, database, CMS, fetch, anywhere...
+  // console.log(params.slug);
+  // const test = async () => {
   const res = await fetch(
-    "https://raw.githubusercontent.com/gAusWeb/misterp-motorsport/main/app/blogs/2nd-blog.md"
+    `https://raw.githubusercontent.com/gAusWeb/misterp-motorsport/main/app/blogs/${params.slug}.md`
+    // `https://github.com/gAusWeb/misterp-motorsport/blob/main/app/blogs/${params.slug}.md`
   );
+  // .then((response) => response.text());
+  // .then(result => document.getElementById('content').innerHTML = marked(result));
   const markdown = await res.text();
-  return <MDXRemote source={markdown} />;
+  console.log("md", markdown);
+
+  const { content, frontmatter } = await compileMDX<{
+    title: string;
+    coverImage: string;
+  }>({
+    source: markdown,
+    options: { parseFrontmatter: true },
+  });
+  return (
+    <>
+      <h1>{frontmatter.title}</h1>
+      <img src={frontmatter.coverImage} alt="" />
+      {content}
+    </>
+  );
+
+  // console.log("yoyoyoyoyo", typeof markdown);
+  // return <MDXRemote source={markdown} />;
+  // return markdown;
   // }
 
-  // return <div>My Post: {params.slug}<br /></div>;
+  // const { data, content } = matter(markdown.toString());
+  // const frontmatter = {
+  //   ...data,
+  //   // slug,
+  // };
+  // // console.log("My YO", frontmatter);
+  // // console.log("YO YO", content);
+
+  // return {
+  //   frontmatter,
+  //   content,
+  // };
+
+  // return <MDXRemote source={test} />;
+  // return test;
+  // };
+
+  // console.log("hi", test().frontmatter);
+
+  return (
+    <div>
+      My Post: <br />
+    </div>
+  );
 }
