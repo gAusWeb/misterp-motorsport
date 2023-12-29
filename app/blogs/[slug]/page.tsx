@@ -2,6 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import { compileMDX } from "next-mdx-remote/rsc";
 import Link from "next/link";
+import Image from "next/image";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   // async function RemoteMdxPage() {
@@ -33,7 +34,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         Back to Blogs
       </Link>
       <h1>{frontmatter.title}</h1>
-      <img src={frontmatter.coverImage} alt="" />
+      <Image src={frontmatter.coverImage} alt="" loading="lazy" />
       {content}
     </>
   );
