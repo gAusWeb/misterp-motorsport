@@ -25,6 +25,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
     source: markdown,
     options: { parseFrontmatter: true },
   });
+
+  const myLoader = () => {
+    return `${frontmatter.coverImage}`;
+  };
   return (
     <>
       <Link
@@ -34,7 +38,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
         Back to Blogs
       </Link>
       <h1>{frontmatter.title}</h1>
-      <Image src={frontmatter.coverImage} alt="" loading="lazy" />
+      <Image
+        src={myLoader()}
+        alt="test"
+        width={1150}
+        height={680}
+        loading="lazy"
+      />
       {content}
     </>
   );
