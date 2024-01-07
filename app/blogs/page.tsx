@@ -115,7 +115,7 @@ export default async function GetPosts({ params }: { params: any }) {
                       <span className="leadi uppercase">Aug</span>
                     </div>
                   </div>
-                  <h2 className="z-10 p-5">
+                  <h4 className="z-10 p-5">
                     {/* <button onClick={() => getPageBlogContent(el.slug)}>
                       {el.frontmatter.title}
                     </button> */}
@@ -128,7 +128,7 @@ export default async function GetPosts({ params }: { params: any }) {
                       {el.frontmatter.title}
                       {/* </a> */}
                     </Link>
-                  </h2>
+                  </h4>
                 </div>
               )
           )}

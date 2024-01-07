@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Document, { Head } from "next/document";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <link
+          href="https://fonts.cdnfonts.com/css/bebas-neue"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.cdnfonts.com/css/parisienne"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={inter.className}>
+        {/* <div className="container mx-auto"> */}
+
+        {/* </div> */}
+        {children}
+      </body>
     </html>
   );
 }

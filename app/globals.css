@@ -10,9 +10,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
+    /* --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0; */
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 255, 255, 255;
+    --background-end-rgb: 255, 255, 255;
   }
 }
 
@@ -26,7 +29,46 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+h1,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 700;
+  /* color: hsl(207, 93%, 54%); */
+  color: #383b3c;
+  line-height: 100%;
+}
+
 h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-family: "Parisienne", sans-serif;
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2.32rem;
+}
+
+h4 {
+  font-size: 1.75rem;
+  color: white;
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 7rem;
+  }
+  h2 {
+    font-size: 4.5rem;
+  }
+}
+
+/* h1 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -40,4 +82,4 @@ h3 {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 1rem;
-}
+} */
