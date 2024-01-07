@@ -1,0 +1,54 @@
+/* FILEPATH: PreHeader.css */
+
+.pre-header {
+  /* Add your styles here */
+}
+.pre-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-block: 10px;
+  background-color: #f7f7f7;
+  column-gap: 0.5rem;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.social-links,
+.phone-icon {
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.social-link {
+  margin-right: 10px;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.telephone-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.tel-link {
+  color: #000;
+  text-decoration: none;
+}
+
+.nav-main {
+  ul {
+    transform: translateX(1rem);
+  }
+}

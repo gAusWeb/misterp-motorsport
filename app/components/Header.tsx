@@ -14,24 +14,24 @@ const Header = () => {
   return (
     <>
       <header>
-        <nav
-          className="
+        <div className="container mx-auto flex justify-end">
+          <nav
+            className="
           flex flex-wrap
           items-center
           justify-between
           w-full
           py-4
-          md:py-0
-          px-4
+          
           text-lg text-gray-700
           bg-white
           bg-opacity-40
           nav-main
         "
-        >
-          <div>
-            <a href="/" className="block">
-              {/* <svg
+          >
+            <div>
+              <a href="/" className="block">
+                {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="150"
                 height="32.125"
@@ -78,68 +78,78 @@ const Header = () => {
                   </g>
                 </g>
               </svg> */}
-              <h3 className="inline-flex">
-                <span>
-                  Mis-terp <span style={{ color: "#ffd518" }}>Motorsports</span>
-                </span>
-              </h3>
-            </a>
-          </div>
+                <h3 className="inline-flex">
+                  <span>
+                    Mis-terp{" "}
+                    <span style={{ color: "#ffd518" }}>Motorsports</span>
+                  </span>
+                </h3>
+              </a>
+            </div>
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            id="menu-button"
-            className="h-6 w-6 cursor-pointer md:hidden block"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            onClick={hamburgerClickHandler}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              id="menu-button"
+              className="h-6 w-6 cursor-pointer md:hidden block"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              onClick={hamburgerClickHandler}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
 
-          <div
-            className="hidden w-full md:flex md:items-center md:w-auto"
-            id="menu"
-            ref={menu}
-          >
-            <ul
-              className="
+            <div
+              className="hidden w-full md:flex md:items-center md:w-auto"
+              id="menu"
+              ref={menu}
+            >
+              <ul
+                className="
               pt-4
               text-base text-gray-700
               md:flex
               md:justify-between 
               md:pt-0"
-            >
-              <li>
-                <Link
-                  href={"/blogs"}
-                  className="md:p-4 py-2 block hover:text-purple-400"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <a className="md:p-4 py-2 block hover:text-purple-400" href="#">
-                  Our work
-                </a>
-              </li>
-              <li>
-                <a className="md:p-4 py-2 block hover:text-purple-400" href="#">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a className="md:p-4 py-2 block hover:text-purple-400" href="#">
-                  Contact
-                </a>
-              </li>
-              {/* <li>
+              >
+                <li>
+                  <Link
+                    href={"/blogs"}
+                    className="md:p-4 py-2 block hover:text-purple-400"
+                  >
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    className="md:p-4 py-2 block hover:text-purple-400"
+                    href="#"
+                  >
+                    Our work
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="md:p-4 py-2 block hover:text-purple-400"
+                    href="#"
+                  >
+                    Services
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="md:p-4 py-2 block hover:text-purple-400"
+                    href="#"
+                  >
+                    Contact
+                  </a>
+                </li>
+                {/* <li>
                 <a
                   className="md:p-4 py-2 block hover:text-purple-400 text-purple-500"
                   href="#"
@@ -147,9 +157,10 @@ const Header = () => {
                   Sign Up
                 </a>
               </li> */}
-            </ul>
-          </div>
-        </nav>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </header>
       {/* <nav className="flex items-center justify-between flex-wrap bg-white p-6">
         <div className="flex items-center flex-shrink-0 text-blue-500 mr-6">

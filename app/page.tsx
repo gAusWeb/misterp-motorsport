@@ -3,6 +3,7 @@ import ProductCart from "./components/ProductCart";
 import Link from "next/link";
 import VideoHero from "./components/VideoHero";
 import Header from "./components/Header";
+import Preheader from "./components/PreHeader";
 
 export default function Home() {
   const videoStyle = {
@@ -16,6 +17,7 @@ export default function Home() {
   };
   return (
     <>
+      <Preheader />
       <Header />
       <VideoHero />
 
