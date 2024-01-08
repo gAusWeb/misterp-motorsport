@@ -19,7 +19,7 @@ const PreHeader: React.FC = () => {
           </a>
           <a href="https://www.instagram.com">
             <img
-              src="/assets/images/icons/instagram-fill.svg"
+              src="/assets/images/icons/instagram-logo-svgrepo-com.svg"
               alt="Instagram"
             />
           </a>

@@ -94,9 +94,26 @@ $waveTextol: white;
 
 .content h2 {
   color: #fff;
-  font-size: 8rem;
+  font-size: 2.5rem;
   position: absolute;
   transform: translate(-50%, -50%);
+  padding-inline: 10px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 6rem;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 6rem;
+  }
+
+  @media only screen and (min-width: 1600px) {
+    font-size: 12rem;
+  }
+
+  @media only screen and (min-width: 2000px) {
+    font-size: 16rem;
+  }
 }
 
 .content h2:nth-child(1) {
