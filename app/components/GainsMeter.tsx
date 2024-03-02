@@ -1,45 +1,14 @@
 import { useEffect, useRef } from "react";
 import "./gains-meter.scss";
 import Counter from "./displayIncrementNumber";
-
-// import UseOnScreen from "./utils/hooks/UseOnScreen";
+import { useInView } from "react-intersection-observer";
+// import AnimationOnScroll from "./utils/hooks/UseOnScreen";
 
 export const GainsMeter = ({ originalPower, gainsPower }: any) => {
-  const powerMeterWrapper = useRef(null);
-  const torqueMeterWrapper = useRef(null);
-  const countWrapperPower = useRef(0);
-
-  // const isVisible = UseOnScreen(powerMeterWrapper);
-
-  // const countUpTo = (n: number) => {
-  //   for (let i = 0; i <= n; i++) {
-  //     // const textNode = document.createTextNode(i + "kW");
-  //     // outputElement?.appendChild(textNode);
-  //     setTimeout(() => {
-  //       countWrapperPower.current = i;
-  //     }, 100);
-  //   }
-
-  // };
-
-  // function Counter({ targetNumber }: { targetNumber: number }) {
-  //   const count = useRef(0);
-
-  //   useEffect(() => {
-  //     const intervalId = setInterval(() => {
-  //       if (count.current < targetNumber) {
-  //         count.current += 1;
-  //         console.log(count.current);
-  //       } else {
-  //         clearInterval(intervalId);
-  //       }
-  //     }, 1000);
-
-  //     return () => clearInterval(intervalId);
-  //   }, [targetNumber]);
-
-  //   return <span>Counting up to: {targetNumber}</span>;
-  // }
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
 
   return (
     <>
@@ -54,7 +23,7 @@ export const GainsMeter = ({ originalPower, gainsPower }: any) => {
           <div className="font-bold text-xl mt-2">VL Calais Turbo</div>
         </div>
 
-        <div className="gains-meter px-6" ref={powerMeterWrapper}>
+        <div className="gains-meter px-6" ref={ref}>
           <div className="label flex justify-between">
             <span>Power</span>
             <span>
@@ -64,9 +33,7 @@ export const GainsMeter = ({ originalPower, gainsPower }: any) => {
 
           <div className="meter relative">
             <div
-              // {...(isVisible
-              //   ? { style: { width: "70%" } }
-              //   : { style: { width: "0%" } })}
+              style={{ width: inView ? "70%" : "0%" }}
               className="progress-wrapper h-full "
             >
               <div className="progress relative flex justify-between h-full"></div>
@@ -80,7 +47,7 @@ export const GainsMeter = ({ originalPower, gainsPower }: any) => {
           </div>
         </div>
 
-        <div className="gains-meter px-6 pt-4 pb-2" ref={torqueMeterWrapper}>
+        <div className="gains-meter px-6 pt-4 pb-2">
           <div className="label flex justify-between">
             <span>
               <span className="amnt">75</span>% Torque
