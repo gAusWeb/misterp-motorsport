@@ -2,14 +2,14 @@ import { useEffect, useRef } from "react";
 import "./gains-meter.scss";
 import Counter from "./displayIncrementNumber";
 
-import UseOnScreen from "./utils/hooks/UseOnScreen";
+// import UseOnScreen from "./utils/hooks/UseOnScreen";
 
 export const GainsMeter = ({ originalPower, gainsPower }: any) => {
   const powerMeterWrapper = useRef(null);
   const torqueMeterWrapper = useRef(null);
   const countWrapperPower = useRef(0);
 
-  const isVisible = UseOnScreen(powerMeterWrapper);
+  // const isVisible = UseOnScreen(powerMeterWrapper);
 
   // const countUpTo = (n: number) => {
   //   for (let i = 0; i <= n; i++) {
@@ -64,9 +64,9 @@ export const GainsMeter = ({ originalPower, gainsPower }: any) => {
 
           <div className="meter relative">
             <div
-              {...(isVisible
-                ? { style: { width: "70%" } }
-                : { style: { width: "0%" } })}
+              // {...(isVisible
+              //   ? { style: { width: "70%" } }
+              //   : { style: { width: "0%" } })}
               className="progress-wrapper h-full "
             >
               <div className="progress relative flex justify-between h-full"></div>
