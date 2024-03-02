@@ -1,3 +1,6 @@
+import "./../components/mosaic-blog.scss";
+import Header from "../components/Header";
+import Preheader from "../components/PreHeader";
 // // import Content from "./jnklj.mdx";
 // // import BlogDetails from './[blog-id]/page';
 
@@ -70,6 +73,9 @@ export default async function GetPosts({ params }: { params: any }) {
       ...data,
       slug,
     };
+
+    // const classNames = ["grid-items", i % 3 ? "test" : null];
+
     return {
       slug,
       frontmatter,
@@ -78,62 +84,128 @@ export default async function GetPosts({ params }: { params: any }) {
   });
 
   return (
-    <div>
-      <Link
-        href="/"
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Home
-      </Link>
-      <br />
-      <div className="max-w-screen-xl p-5 mx-auto dark:bg-gray-800 dark:text-gray-100">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-4 lg:grid-rows-2">
-          {posts.map(
-            (el: any) =>
-              el &&
-              el.slug && (
-                // el.slug == params.slug && (
-                <div
-                  className="relative flex items-end justify-start w-full text-left bg-center bg-cover cursor-pointer h-96 group dark:bg-gray-500"
-                  style={{
-                    backgroundImage: `url(${el.frontmatter.coverImage})`,
-                  }}
-                >
-                  <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b dark:via-transparent dark:from-gray-900 dark:to-gray-900"></div>
-                  <div className="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
-                    <a
-                      rel="noopener noreferrer"
-                      href="#"
-                      className="px-3 py-2 text-xs font-semibold tracki uppercase hover:underline dark:text-gray-100 dark:bg-violet-400"
+    <>
+      <Preheader />
+      <Header />
+      <div>
+        <div className="container mx-auto">
+          {/* {/*   <Link
+            href="/"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Home
+          </Link>
+        </div>
+        <br />
+        <br /> */}
+
+          <div className="grid">
+            {posts.map(
+              (el: any, i: number) =>
+                el &&
+                el.slug && (
+                  <div
+                    className={[`grid-items`, i % 2 ? " featured" : null].join(
+                      " "
+                    )}
+                  >
+                    <div
+                      className="relative flex items-end justify-start w-full text-left bg-center bg-cover cursor-pointer h-96 group dark:bg-gray-500"
+                      style={{
+                        backgroundImage: `url(${el.frontmatter.coverImage})`,
+                      }}
                     >
-                      Dyno Tune
-                    </a>
-                    <div className="flex flex-col justify-start text-center dark:text-gray-100">
-                      <span className="text-3xl font-semibold leadi tracki">
-                        04
-                      </span>
-                      <span className="leadi uppercase">Aug</span>
-                    </div>
-                  </div>
-                  <h4 className="z-10 p-5">
-                    {/* <button onClick={() => getPageBlogContent(el.slug)}>
+                      <div className="overlay"></div>
+                      <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b dark:via-transparent dark:from-gray-900 dark:to-gray-900"></div>
+                      //{" "}
+                      <div className="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
+                        //{" "}
+                        <a
+                          rel="noopener noreferrer"
+                          href="#"
+                          className="px-3 py-2 text-xs font-semibold tracki uppercase hover:underline dark:text-gray-100 dark:bg-violet-400"
+                        >
+                          Dyno Tune
+                        </a>
+                        <div className="flex flex-col justify-start text-center dark:text-gray-100">
+                          <span className="text-3xl font-semibold leadi tracki">
+                            04
+                          </span>
+                          <span className="leadi uppercase">Aug</span>
+                        </div>
+                      </div>
+                      <h4 className="z-10 p-5">
+                        {/* <button onClick={() => getPageBlogContent(el.slug)}>
                       {el.frontmatter.title}
                     </button> */}
-                    <Link href={`/blogs/${el.slug}`}>
-                      {/* <a
+                        <Link href={`/blogs/${el.slug}`}>
+                          {/* <a
                       rel="noopener noreferrer"
                       href="#"
                       className="font-medium text-md group-hover:underline dark:text-gray-100"
                     > */}
-                      {el.frontmatter.title}
-                      {/* </a> */}
-                    </Link>
-                  </h4>
-                </div>
-              )
-          )}
+                          {el.frontmatter.title}
+                          {/* </a> */}
+                        </Link>
+                      </h4>
+                    </div>
+                  </div>
+                )
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
+
+// <br />
+//       <br />
+//       <div className="max-w-screen-xl p-5 mx-auto dark:bg-gray-800 dark:text-gray-100">
+//         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-4 lg:grid-rows-2">
+//           {posts.map(
+//             (el: any) =>
+//               el &&
+//               el.slug && (
+//                 // el.slug == params.slug && (
+//                 <div
+//                   className="relative flex items-end justify-start w-full text-left bg-center bg-cover cursor-pointer h-96 group dark:bg-gray-500"
+//                   style={{
+//                     backgroundImage: `url(${el.frontmatter.coverImage})`,
+//                   }}
+//                 >
+//                   <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b dark:via-transparent dark:from-gray-900 dark:to-gray-900"></div>
+//                   <div className="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
+//                     <a
+//                       rel="noopener noreferrer"
+//                       href="#"
+//                       className="px-3 py-2 text-xs font-semibold tracki uppercase hover:underline dark:text-gray-100 dark:bg-violet-400"
+//                     >
+//                       Dyno Tune
+//                     </a>
+//                     <div className="flex flex-col justify-start text-center dark:text-gray-100">
+//                       <span className="text-3xl font-semibold leadi tracki">
+//                         04
+//                       </span>
+//                       <span className="leadi uppercase">Aug</span>
+//                     </div>
+//                   </div>
+//                   <h4 className="z-10 p-5">
+//                     {/* <button onClick={() => getPageBlogContent(el.slug)}>
+//                       {el.frontmatter.title}
+//                     </button> */}
+//                     <Link href={`/blogs/${el.slug}`}>
+//                       {/* <a
+//                       rel="noopener noreferrer"
+//                       href="#"
+//                       className="font-medium text-md group-hover:underline dark:text-gray-100"
+//                     > */}
+//                       {el.frontmatter.title}
+//                       {/* </a> */}
+//                     </Link>
+//                   </h4>
+//                 </div>
+//               )
+//           )}
+//         </div>
+//       </div>

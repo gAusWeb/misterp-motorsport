@@ -3,6 +3,7 @@ import matter from "gray-matter";
 import { compileMDX } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import Image from "next/image";
+import "./../../components/mosaic-blog.scss";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   // async function RemoteMdxPage() {

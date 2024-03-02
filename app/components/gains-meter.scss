@@ -1,0 +1,32 @@
+.meter {
+  height: 3rem;
+  position: relative;
+  background: #34a223;
+  overflow: hidden;
+}
+
+// .meter span {
+//   display: block;
+//   height: 100%;
+// }
+
+.progress {
+  background-color: #4d4d4d;
+  // animation: progressBar 1s cubic-bezier(0, 0.17, 0.36, 1);
+  // animation-fill-mode: both;
+  padding: 5px;
+  color: white;
+
+  &-wrapper {
+    transition: width 1s 0.5s cubic-bezier(0, 0.17, 0.36, 1);
+  }
+}
+
+@keyframes progressBar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
