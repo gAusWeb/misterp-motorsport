@@ -8,12 +8,6 @@ const PreHeader: React.FC = () => {
           <a href="https://www.facebook.com">
             <img src="/assets/images/icons/facebook.svg" alt="Facebook" />
           </a>
-          {/* <a href="https://www.twitter.com">
-            <img
-              src="https://cdn.example.com/icons/twitter-icon.svg"
-              alt="Twitter"
-            />
-          </a> */}
           <a href="https://www.linkedin.com">
             <img src="/assets/images/icons/linkedin.svg" alt="LinkedIn" />
           </a>
