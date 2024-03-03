@@ -7,9 +7,10 @@ interface CounterProps {
 
 const Counter: React.FC<CounterProps> = ({ originalPower, gainsPower }) => {
   const [originalCount, setOriginalCount] = useState<number>(0);
+  const originalPowerMeter = useRef<HTMLDivElement | null>(null);
+
   const [gainsCount, setGainsCount] = useState<number>(0);
-  const originalPowerMeter = useRef(null);
-  const gainsPowerMeter = useRef(null);
+  const gainsPowerMeter = useRef<HTMLDivElement | null>(null);
 
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -17,31 +18,39 @@ const Counter: React.FC<CounterProps> = ({ originalPower, gainsPower }) => {
   });
 
   useEffect(() => {
+    const intervalTime = 1000 / originalPower;
+
     if (inView) {
-      const originalIntervalId = setInterval(() => {
-        if (originalCount < originalPower) {
-          setOriginalCount((prevCount) => prevCount + 1);
-        } else {
-          clearInterval(originalIntervalId);
-        }
-      }, 2);
+      const intervalId = setInterval(() => {
+        setOriginalCount((prevCount) => {
+          if (prevCount < originalPower) {
+            return prevCount + 1;
+          } else {
+            clearInterval(intervalId);
+            return prevCount;
+          }
+        });
+      }, intervalTime);
 
-      const gainsIntervalId = setInterval(() => {
-        if (gainsCount < gainsPower) {
-          setGainsCount((prevCount) => prevCount + 1);
-        } else {
-          clearInterval(gainsIntervalId);
-        }
-      }, 2);
+      const intervalGainsTime = 1000 / gainsPower;
 
-      return () => (
-        clearInterval(originalIntervalId), clearInterval(gainsIntervalId)
-      );
+      const intervalGainsId = setInterval(() => {
+        setGainsCount((prevCount) => {
+          if (prevCount < gainsPower) {
+            return prevCount + 1;
+          } else {
+            clearInterval(intervalGainsId);
+            return prevCount;
+          }
+        });
+      }, intervalGainsTime);
+
+      return () => (clearInterval(intervalId), clearInterval(intervalGainsId));
     } else {
       setOriginalCount(0);
       setGainsCount(0);
     }
-  }, [originalCount, originalPower, gainsCount, gainsPower, inView]);
+  }, [inView, originalPower, gainsPower]);
 
   return (
     <div ref={ref} className="flex justify-between items-center w-full">
