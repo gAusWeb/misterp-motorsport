@@ -12,7 +12,7 @@ export const ContentTile = (props: any) => {
       </a>
       <div className="p-5">
         <a href="#">
-          <h5 className="pt-2 mb-2 text-4xl font-bold tracking-tight text-gray-900">
+          <h5 className="pt-2 mb-2 text-3xl font-bold text-gray-900">
             {props.title}
           </h5>
         </a>

@@ -1,10 +1,27 @@
 import type { Metadata } from "next";
 import Document, { Head } from "next/document";
-import { Inter } from "next/font/google";
+import { Bebas_Neue, Inter, Parisienne } from "next/font/google";
 import "./globals.css";
+import "@/scss/main.scss";
 import Header from "./components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const bebasNeue = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-bebas",
+});
+
+const parisienne = Parisienne({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-paris",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,20 +35,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link
-          href="https://fonts.cdnfonts.com/css/bebas-neue"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.cdnfonts.com/css/parisienne"
-          rel="stylesheet"
-        />
-      </head>
-      <body className={inter.className}>
-        {/* <div className="container mx-auto"> */}
-
-        {/* </div> */}
+      <head></head>
+      <body
+        className={`${inter.variable} font-sans ${bebasNeue.variable} ${parisienne.variable}`}
+      >
         {children}
       </body>
     </html>

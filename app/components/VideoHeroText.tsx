@@ -30,6 +30,9 @@ const VideoHeroText = () => {
           <div className="content">
             <h2>Mr P Motorsports</h2>
             <h2>Mr P Motorsports</h2>
+            <h3 className="text-white text-5xl tracking-wide ">
+              Result Driven Dyno Tuning
+            </h3>
             {/* <h2>Misterpmotorsports</h2>
             <h2>Misterpmotorsports</h2> */}
           </div>

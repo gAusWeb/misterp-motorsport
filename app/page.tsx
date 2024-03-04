@@ -10,13 +10,28 @@ import { ContentGrid } from "./components/ContentGrid";
 import { Carousel } from "./components/Carousel";
 import "./text.scss";
 import { useEffect, useState } from "react";
-import Throttle from "./components/utils/Throttle";
+import { useInView } from "react-intersection-observer";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useViewportScroll,
+} from "framer-motion";
 
 export default function Home() {
   const [scrollDir, setScrollDir] = useState("down");
+  const { scrollY } = useViewportScroll();
+  const y = useTransform(scrollY, [700, 1200, 3000, 3500], [0, 1, 1, 0], {
+    clamp: false,
+  });
+
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
 
   useEffect(() => {
-    const threshold = 100;
+    const threshold = 50;
     let lastScrollY = window.pageYOffset;
     let ticking = false;
 
@@ -57,26 +72,29 @@ export default function Home() {
 
       <VideoHero />
 
-      <section className="section-wrapper flex align-center flex-col">
+      <section className="section-wrapper flex align-center flex-col rounded-top">
         <div className="container mx-auto my-auto">
           <div className="mx-4">
-            <h1 className="h1 mb-5 font-bold tracking-tight text-gray-900">
-              <span className="block">Welcome to</span>
-              <span>MR P Motorsports</span>
-              {/* <h1 className="mt-0">Welcome to</h1>
-            <h1 className="mb-0">MR P Motorsports</h1> */}
-            </h1>
-            <p className="max-w-4xl mb-0">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, amet
-              delectus? Omnis laborum tempora beatae quas! Quia odio laboriosam
-              laborum id placeat accusamus architecto impedit suscipit nobis
-              porro temporibus, illum, soluta aspernatur itaque et quasi
-              corporis voluptas reprehenderit voluptatibus sapiente dolorem
-              fugiat. Perferendis ipsa ex sint architecto repellat vitae,
-              delectus iure alias vel quidem ducimus voluptatum velit odio.
-              Quis, fuga! Velit laudantium consectetur non laboriosam atque vero
-              quibusdam modi itaque accusamus, a sint, delectus saepe!
-            </p>
+            <motion.div ref={ref} style={{ opacity: y }}>
+              <div className="welcome-text fixed">
+                <h1 className="h1 mb-5 font-bold text-gray-900">
+                  <span className="block">Welcome to</span>
+                  <span>MR P Motorsports</span>
+                </h1>
+                <p className="max-w-4xl mb-0">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,
+                  amet delectus? Omnis laborum tempora beatae quas! Quia odio
+                  laboriosam laborum id placeat accusamus architecto impedit
+                  suscipit nobis porro temporibus, illum, soluta aspernatur
+                  itaque et quasi corporis voluptas reprehenderit voluptatibus
+                  sapiente dolorem fugiat. Perferendis ipsa ex sint architecto
+                  repellat vitae, delectus iure alias vel quidem ducimus
+                  voluptatum velit odio. Quis, fuga! Velit laudantium
+                  consectetur non laboriosam atque vero quibusdam modi itaque
+                  accusamus, a sint, delectus saepe!
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -92,7 +110,7 @@ export default function Home() {
       <section className="section-wrapper flex align-center flex-col">
         <div className="container mx-auto my-30 mr-auto">
           <div className="mx-4">
-            <h3 className="h3 section-header font-bold tracking-tight text-gray-900">
+            <h3 className="h3 section-header font-bold text-gray-900">
               Dyno results
             </h3>
             <Carousel />

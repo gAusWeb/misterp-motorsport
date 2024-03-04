@@ -34,6 +34,9 @@ nav.nav-main h3 {
       left: 0;
       bottom: 0;
       right: 0;
+      animation: sticky-parallax-header-move-and-size linear forwards;
+      animation-timeline: scroll();
+      animation-range: 0vh 90vh;
     }
   }
 
@@ -53,6 +56,25 @@ nav.nav-main h3 {
 
   h1 {
     color: #ffd518;
+  }
+
+  @keyframes sticky-parellex {
+    // 0% {
+    //   transform: translateY(0);
+    // }
+    // 100% {
+    //   transform: translateY(-50%);
+    // }
+
+    0% {
+      background-position: 50% 0;
+    }
+
+    100% {
+      background-position: 50% 100%;
+      height: 10vh;
+      font-size: 2em;
+    }
   }
 
   &__text-wrapper {
@@ -126,28 +148,35 @@ $waveTextol: #03a9f4;
 $waveTextol: rgb(0, 238, 255);
 $waveTextol: white;
 
-.content h2 {
-  color: #fff;
-  font-size: 3rem;
-  // position: absolute;
-  // transform: translate(-50%, -50%);
-  padding-inline: 10px;
-
-  @media only screen and (min-width: 768px) {
-    font-size: 6rem;
+.content {
+  h2 {
+    color: #fff;
+    // font-size: 3rem;
+    // position: absolute;
+    // transform: translate(-50%, -50%);
+    padding-inline: 10px;
+    line-height: 1;
   }
 
-  @media only screen and (min-width: 1024px) {
-    font-size: 6rem;
+  h3 {
+    margin-top: 3rem;
   }
 
-  @media only screen and (min-width: 1600px) {
-    font-size: 12rem;
-  }
+  // @media only screen and (min-width: 768px) {
+  //   font-size: 6rem;
+  // }
 
-  @media only screen and (min-width: 2000px) {
-    font-size: 16rem;
-  }
+  // @media only screen and (min-width: 1024px) {
+  //   font-size: 6rem;
+  // }
+
+  // @media only screen and (min-width: 1600px) {
+  //   font-size: 12rem;
+  // }
+
+  // @media only screen and (min-width: 2000px) {
+  //   font-size: 16rem;
+  // }
 }
 
 .content h2:nth-child(1) {

@@ -1,13 +1,11 @@
 "use client";
-// import { useEffect, useRef } from 'react';
-// import { register } from 'swiper/element/bundle';
-
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// import Swiper from "swiper";
-// import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
 import { ContentTile } from "./ContentTile";
 import { GainsMeter } from "./GainsMeter";
 // import "swiper/css/navigation";
@@ -46,15 +44,14 @@ export const Carousel = (props: any) => {
     <div className="mb-40">
       <div className="container mx-auto">
         <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={50}
           slidesPerView={1}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
-          // navigation={true}
-          navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          }}
+          navigation
+          pagination={{ clickable: true }}
+          scrollbar={{ draggable: true }}
           breakpoints={{
             768: {
               slidesPerView: 2,

@@ -4,10 +4,10 @@ export const ContentGrid = () => {
   return (
     <div className="content-grid">
       <div className="container mx-auto my-30 mr-auto">
-        <h3 className="h3 section-header font-bold tracking-tight text-gray-900 mb-5">
+        <h3 className="h3 section-header font-bold text-gray-900 mb-5">
           Our services
         </h3>
-        <div className="grid md:grid-cols-2 gap-20 ">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 ">
           <div className="grid md:grid-flow-col md:gap-20">
             <ContentTile
               imgSrc="https://images.unsplash.com/photo-1517026575980-3e1e2dedeab4?q=80&w=500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
