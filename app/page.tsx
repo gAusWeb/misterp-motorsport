@@ -31,7 +31,7 @@ export default function Home() {
   });
 
   useEffect(() => {
-    const threshold = 50;
+    const threshold = 100;
     let lastScrollY = window.pageYOffset;
     let ticking = false;
 
