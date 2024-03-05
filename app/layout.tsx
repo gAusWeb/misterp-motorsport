@@ -35,7 +35,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head></head>
+      <head>
+        <script
+          async
+          src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+        ></script>
+      </head>
       <body
         className={`${inter.variable} font-sans ${bebasNeue.variable} ${parisienne.variable}`}
       >
