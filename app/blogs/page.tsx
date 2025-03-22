@@ -109,36 +109,37 @@ export default async function GetPosts({ params }: { params: any }) {
                       " "
                     )}
                   >
-                    <div
-                      className="relative flex items-end justify-start w-full text-left bg-center bg-cover cursor-pointer h-96 group dark:bg-gray-500"
-                      style={{
-                        backgroundImage: `url(${el.frontmatter.coverImage})`,
-                      }}
-                    >
-                      <div className="overlay"></div>
-                      <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b dark:via-transparent dark:from-gray-900 dark:to-gray-900"></div>
-                      //{" "}
-                      <div className="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
+                    <Link href={`/blogs/${el.slug}`}>
+                      <div
+                        className="relative flex items-end justify-start w-full text-left bg-center bg-cover cursor-pointer h-96 group dark:bg-gray-500"
+                        style={{
+                          backgroundImage: `url(${el.frontmatter.coverImage})`,
+                        }}
+                      >
+                        <div className="overlay"></div>
+                        <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b dark:via-transparent dark:from-gray-900 dark:to-gray-900"></div>
                         //{" "}
-                        <a
-                          rel="noopener noreferrer"
-                          href="#"
-                          className="px-3 py-2 text-xs font-semibold tracki uppercase hover:underline dark:text-gray-100 dark:bg-violet-400"
-                        >
-                          Dyno Tune
-                        </a>
-                        <div className="flex flex-col justify-start text-center dark:text-gray-100">
-                          <span className="text-3xl font-semibold leadi tracki">
-                            04
-                          </span>
-                          <span className="leadi uppercase">Aug</span>
+                        <div className="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
+                          //{" "}
+                          <a
+                            rel="noopener noreferrer"
+                            href="#"
+                            className="px-3 py-2 text-xs font-semibold tracki uppercase hover:underline dark:text-gray-100 dark:bg-violet-400"
+                          >
+                            Dyno Tune
+                          </a>
+                          <div className="flex flex-col justify-start text-center dark:text-gray-100">
+                            <span className="text-3xl font-semibold leadi tracki">
+                              04
+                            </span>
+                            <span className="leadi uppercase">Aug</span>
+                          </div>
                         </div>
-                      </div>
-                      <h4 className="z-10 p-5">
-                        {/* <button onClick={() => getPageBlogContent(el.slug)}>
+                        <h4 className="z-10 p-5">
+                          {/* <button onClick={() => getPageBlogContent(el.slug)}>
                       {el.frontmatter.title}
                     </button> */}
-                        <Link href={`/blogs/${el.slug}`}>
+                          {/* <h3 className="font-bold text-2xl text-gray-900"> */}
                           {/* <a
                       rel="noopener noreferrer"
                       href="#"
@@ -146,9 +147,10 @@ export default async function GetPosts({ params }: { params: any }) {
                     > */}
                           {el.frontmatter.title}
                           {/* </a> */}
-                        </Link>
-                      </h4>
-                    </div>
+                          {/* </Link> */}
+                        </h4>
+                      </div>
+                    </Link>
                   </div>
                 )
             )}

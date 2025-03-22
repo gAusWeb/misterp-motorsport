@@ -1,0 +1,48 @@
+$animationDuration: 0.4s;
+
+.site-header {
+    background-color: white;
+    transition: background-color $animationDuration ease-in-out,
+        max-height $animationDuration ease-in-out;
+
+    &__logo {
+        span:first-child {
+            color: #222;
+            transition: color $animationDuration ease-in-out;
+        }
+    }
+
+    &__nav-items-wrapper a {
+        color: #222;
+        transition: color $animationDuration ease-in-out;
+    }
+}
+
+.scroll {
+    &--page-top {
+        .site-header {
+            background-color: transparent;
+            box-shadow: none;
+            max-height: 90px;
+            // opacity: 0.5;
+
+            // .pre-header {
+            //   max-height: 0px;
+            // }
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &__logo {
+                span:first-child {
+                    color: white;
+                }
+            }
+
+            &__nav-items-wrapper a {
+                color: white;
+            }
+        }
+    }
+}

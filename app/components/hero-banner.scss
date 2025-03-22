@@ -1,5 +1,5 @@
 nav.nav-main h3 {
-  // transform: translateY(0.3rem);
+    // transform: translateY(0.3rem);
 }
 
 .test {
@@ -8,107 +8,151 @@ nav.nav-main h3 {
 // $videoHeight: calc(10dvh);
 
 .hero-video {
-  // height: calc(56.25% - (144px / 2));
+    // height: calc(56.25% - (144px / 2));
 
-  margin-top: 50px;
-  transition: margin-top 0.3s ease-in-out;
+    // margin-top: 50px;
+    transition: margin-top 0.3s ease-in-out;
 
-  .up & {
-    margin-top: 130px;
-  }
-
-  &__wrapper {
-    padding-top: 56.25%;
-
-    video,
-    iframe {
-      // position: absolute;
-      width: 100%;
-      // min-width: 100%;
-      height: 100%;
-      // top: 0;
-      object-fit: cover;
-      // z-index: -1;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      animation: sticky-parallax-header-move-and-size linear forwards;
-      animation-timeline: scroll();
-      animation-range: 0vh 90vh;
+    .up & {
+        // margin-top: 130px;
     }
-  }
 
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    // height: $videoHeight;
-    background: rgba(0, 0, 0, 0.15);
-    z-index: 0;
-    // min-height: 375px;
-    // padding-top: calc(56.25% / 2);
-    padding-top: calc(56.25% - (144px / 2));
-  }
-
-  h1 {
-    color: #ffd518;
-  }
-
-  @keyframes sticky-parellex {
-    // 0% {
-    //   transform: translateY(0);
-    // }
-    // 100% {
-    //   transform: translateY(-50%);
+    // &:before {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 30%;
+    //   // gradient from semi transparent to transparent
+    //   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), transparent);
+    //   width: 100%;
+    //   // height: $videoHeight;
+    //   // background: rgba(0, 0, 0, 0.15);
+    //   background: rgba(188, 17, 17, 1);
+    //   z-index: 20;
+    //   height: 130px;
+    //   // min-height: 375px;
+    //   // padding-top: calc(56.25% / 2);
+    //   padding-top: calc(56.25% - (144px / 2));
+    //   padding: 0;
     // }
 
-    0% {
-      background-position: 50% 0;
+    &__wrapper {
+        // padding-top: 56.25%;
+        height: 100dvh;
+
+        video,
+        iframe {
+            // position: absolute;
+            width: 100%;
+            // min-width: 100%;
+            height: 100%;
+            // top: 0;
+            object-fit: cover;
+            // z-index: -1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            animation: sticky-parallax-header-move-and-size linear forwards;
+            animation-timeline: scroll();
+            animation-range: 0vh 90vh;
+        }
     }
 
-    100% {
-      background-position: 50% 100%;
-      height: 10vh;
-      font-size: 2em;
-    }
-  }
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 500px;
+        // height: $videoHeight;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0),
+            transparent
+        );
+        // background: linear-gradient(
+        //   to bottom,
+        //   rgba(0, 0, 0, 0.9),
+        //   rgba(0, 0, 0, 0.7),
+        //   rgba(0, 0, 0, 0.4),
+        //   rgba(0, 0, 0, 0.3),
+        //   rgba(0, 0, 0, 0.2),
+        //   rgba(0, 0, 0, 0.1),
+        //   rgba(0, 0, 0, 0),
+        //   transparent
+        // );
 
-  &__text-wrapper {
-    // height: $videoHeight;
-    // min-height: 375px;
-    // padding-top: calc((56.25% - (144px / 2)) / 2);
-    // padding-top: 18%;
-    top: 0;
-    height: 100%;
-    width: 100%;
+        z-index: 2;
+        // min-height: 375px;
+        // padding-top: calc(56.25% / 2);
+        // padding-top: calc(56.25% - (144px / 2));
+    }
 
     h1 {
-      z-index: 1;
+        color: #ffd518;
     }
 
-    &__inner {
-      height: 100%;
+    @keyframes sticky-parellex {
+        // 0% {
+        //   transform: translateY(0);
+        // }
+        // 100% {
+        //   transform: translateY(-50%);
+        // }
 
-      /* global 92%+ browsers support */
-      background: radial-gradient(
-        circle at 50% 50%,
-        rgba(228, 228, 228, 0.35) 20%,
-        rgba(255, 255, 255, 0) 80%
-      );
-      background: radial-gradient(
-        circle at 50% 21%,
-        rgb(0 0 0 / 25%) 3%,
-        rgb(0 0 0 / 0%) 60%
-      );
+        0% {
+            background-position: 50% 0;
+        }
+
+        100% {
+            background-position: 50% 100%;
+            height: 10vh;
+            font-size: 2em;
+        }
     }
-  }
 
-  &__video {
-  }
+    &__text-wrapper {
+        // height: $videoHeight;
+        // min-height: 375px;
+        // padding-top: calc((56.25% - (144px / 2)) / 2);
+        // padding-top: 18%;
+        top: 0;
+        height: 100%;
+        width: 100%;
+
+        h1 {
+            z-index: 1;
+        }
+
+        &__inner {
+            height: 100%;
+
+            /* global 92%+ browsers support */
+            background: radial-gradient(
+                circle at 50% 50%,
+                rgba(228, 228, 228, 0.35) 20%,
+                rgba(255, 255, 255, 0) 80%
+            );
+            background: radial-gradient(
+                circle at 50% 21%,
+                rgb(0 0 0 / 25%) 3%,
+                rgb(0 0 0 / 0%) 60%
+            );
+        }
+    }
+
+    &__video {
+    }
 }
 
 // .animate-charcter {
@@ -134,14 +178,14 @@ nav.nav-main h3 {
 // }
 
 @keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
+    to {
+        background-position: 200% center;
+    }
 }
 
 .content {
-  position: relative;
-  // transform: translateY(-80px);
+    position: relative;
+    // transform: translateY(-80px);
 }
 
 $waveTextol: #03a9f4;
@@ -149,79 +193,79 @@ $waveTextol: rgb(0, 238, 255);
 $waveTextol: white;
 
 .content {
-  h2 {
-    color: #fff;
-    // font-size: 3rem;
-    // position: absolute;
-    // transform: translate(-50%, -50%);
-    padding-inline: 10px;
-    line-height: 1;
-  }
+    h2 {
+        color: #fff;
+        // font-size: 3rem;
+        // position: absolute;
+        // transform: translate(-50%, -50%);
+        padding-inline: 10px;
+        line-height: 1;
+    }
 
-  h3 {
-    margin-top: 3rem;
-  }
+    h3 {
+        margin-top: 3rem;
+    }
 
-  // @media only screen and (min-width: 768px) {
-  //   font-size: 6rem;
-  // }
+    // @media only screen and (min-width: 768px) {
+    //   font-size: 6rem;
+    // }
 
-  // @media only screen and (min-width: 1024px) {
-  //   font-size: 6rem;
-  // }
+    // @media only screen and (min-width: 1024px) {
+    //   font-size: 6rem;
+    // }
 
-  // @media only screen and (min-width: 1600px) {
-  //   font-size: 12rem;
-  // }
+    // @media only screen and (min-width: 1600px) {
+    //   font-size: 12rem;
+    // }
 
-  // @media only screen and (min-width: 2000px) {
-  //   font-size: 16rem;
-  // }
+    // @media only screen and (min-width: 2000px) {
+    //   font-size: 16rem;
+    // }
 }
 
 .content h2:nth-child(1) {
-  color: white;
+    color: white;
 
-  @media only screen and (min-width: 768px) {
-    color: transparent;
-    -webkit-text-stroke: 2px $waveTextol;
-  }
+    @media only screen and (min-width: 768px) {
+        color: transparent;
+        -webkit-text-stroke: 2px $waveTextol;
+    }
 }
 
 .content h2:nth-child(2) {
-  position: absolute;
-  color: $waveTextol;
-  top: 0;
-  animation: animate 4s ease-in-out infinite;
+    position: absolute;
+    color: $waveTextol;
+    top: 0;
+    animation: animate 4s ease-in-out infinite;
 }
 
 @keyframes animate {
-  0%,
-  100% {
-    clip-path: polygon(
-      0% 45%,
-      16% 44%,
-      33% 50%,
-      54% 60%,
-      70% 61%,
-      84% 59%,
-      100% 52%,
-      100% 100%,
-      0% 100%
-    );
-  }
+    0%,
+    100% {
+        clip-path: polygon(
+            0% 45%,
+            16% 44%,
+            33% 50%,
+            54% 60%,
+            70% 61%,
+            84% 59%,
+            100% 52%,
+            100% 100%,
+            0% 100%
+        );
+    }
 
-  50% {
-    clip-path: polygon(
-      0% 60%,
-      15% 65%,
-      34% 66%,
-      51% 62%,
-      67% 50%,
-      84% 45%,
-      100% 46%,
-      100% 100%,
-      0% 100%
-    );
-  }
+    50% {
+        clip-path: polygon(
+            0% 60%,
+            15% 65%,
+            34% 66%,
+            51% 62%,
+            67% 50%,
+            84% 45%,
+            100% 46%,
+            100% 100%,
+            0% 100%
+        );
+    }
 }

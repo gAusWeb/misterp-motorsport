@@ -15,13 +15,13 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed w-full flex flex-col">
+      <header className="site-header fixed w-full flex flex-col header">
         <Preheader />
 
         <div className="flex items-center h-full">
           <div className="container mx-auto flex justify-end align-center w-full">
             <nav className="flex flex-wrap items-center justify-between w-full text-lg text-gray-700 nav-main mx-4">
-              <a href="/" className="block">
+              <a href="/" className="site-header__logo block">
                 {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="150"
@@ -103,37 +103,29 @@ const Header = () => {
               text-base text-gray-700
               md:flex
               md:justify-between 
-              md:pt-0"
+              md:pt-0
+              site-header__nav-items-wrapper"
                 >
                   <li>
                     <Link
                       href={"/blogs"}
-                      className="md:p-4 py-2 block hover:text-purple-400"
+                      className="md:p-4 py-2 block hover:underline"
                     >
                       Blog
                     </Link>
                   </li>
                   <li>
-                    <a
-                      className="md:p-4 py-2 block hover:text-purple-400"
-                      href="#"
-                    >
+                    <a className="md:p-4 py-2 block hover:underline" href="#">
                       Our work
                     </a>
                   </li>
                   <li>
-                    <a
-                      className="md:p-4 py-2 block hover:text-purple-400"
-                      href="#"
-                    >
+                    <a className="md:p-4 py-2 block hover:underline" href="#">
                       Services
                     </a>
                   </li>
                   <li>
-                    <a
-                      className="md:p-4 py-2 block hover:text-purple-400"
-                      href="#"
-                    >
+                    <a className="md:p-4 py-2 block hover:underline" href="#">
                       Contact
                     </a>
                   </li>

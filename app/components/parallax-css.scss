@@ -1,0 +1,47 @@
+.parallax {
+  height: 100vh;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 10000;
+  display: block;
+  position: relative;
+
+  perspective: 1px;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.layer1 {
+  transform: translateZ(0);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(https://images.unsplash.com/photo-1519120944692-1a8d8cfc107f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80);
+  background-size: cover;
+  background-position: center;
+
+  /*  this is where the magic happens:  */
+  background-attachment: fixed;
+}
+
+.layer2 {
+  transform: translateZ(1px);
+  background-image: url(https://images.unsplash.com/photo-1514496959998-c01c40915c5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80);
+  background-attachment: fixed;
+  height: 1200px;
+}
+
+.layer3 {
+  transform: translateZ(2px);
+  background-color: green;
+}
