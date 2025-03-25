@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect } from "react";
 import {
   motion,
   useMotionValue,
@@ -18,9 +18,21 @@ const VideoHero = () => {
     offset: ["end end", "end start"],
   });
 
-  const videoHeight = videoWrapper.current?.offsetHeight || 0;
-  document.body.style.setProperty("--video-height", `${videoHeight}`);
-  // .style.setProperty('--variable', 'value');
+  // let videoHeight = 0;
+
+  // const videoHeight = videoWrapper.current?.offsetHeight || 0;
+  // document.body.style.setProperty("--video-height", `${videoHeight}`);
+  // // .style.setProperty('--variable', 'value');
+  useEffect(() => {
+    // Ensure this runs only in the browser
+    if (typeof window !== "undefined" && videoWrapper.current) {
+      const videoHeight = videoWrapper.current.offsetHeight || 0;
+      document.body.style.setProperty("--video-height", `${videoHeight}px`);
+      // console.log(document.body.style.getPropertyValue("--video-height"));
+    }
+  }, [videoWrapper]);
+
+  // console.log(videoHeight);
 
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const translateZ = useTransform(scrollYProgress, [0, 0.5], [1, 8]);

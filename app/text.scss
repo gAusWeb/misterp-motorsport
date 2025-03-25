@@ -3,109 +3,118 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-bebas), sans-serif;
-    font-weight: 700;
-    color: #383b3c;
-    line-height: 100%;
+  font-family: var(--font-bebas), sans-serif;
+  font-weight: 700;
+  color: #383b3c;
+  line-height: 100%;
 }
 
 h1,
 .h1 {
-    font-size: 4rem;
-    // font-size: 7rem;''
-    font-size: calc(4rem + 2vw) !important;
+  font-size: 4rem;
+  // font-size: 7rem;''
+  font-size: calc(4rem + 2vw) !important;
 
-    &.fixed {
-    }
+  &.fixed {
+  }
 }
 
 p {
-    font-size: calc(1rem + 0.25vw) !important;
+  font-size: calc(1rem + 0.25vw) !important;
 }
 
 h2,
 .h2 {
-    font-family: var(--font-paris), sans-serif;
-    font-size: calc(100vw * 0.115);
+  font-family: var(--font-paris), sans-serif;
+  font-size: calc(100vw * 0.115);
 }
 
 h3,
 .h3 {
-    font-size: 3rem;
+  font-size: 3rem;
 
-    &.section-header {
-        // background-color: #ebebeb;
-        /* make a gradient top to bottom from transparency to #ebebeb */
-        // background: linear-gradient(to right, transparent, #ebebeb);
-        // padding: 1.5rem 1rem 0.4rem 1rem;
-        // border-radius: 5px;
-        /* box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); */
-        margin-bottom: 2rem;
+  &.section-header {
+    // background-color: #ebebeb;
+    /* make a gradient top to bottom from transparency to #ebebeb */
+    // background: linear-gradient(to right, transparent, #ebebeb);
+    // padding: 1.5rem 1rem 0.4rem 1rem;
+    // border-radius: 5px;
+    /* box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); */
+    margin-bottom: 2rem;
 
-        // &::after {
-        //   content: "";
-        //   display: block;
-        //   width: 100%;
-        //   height: 0.05rem;
-        //   background-color: #fff;
-        //   /* make a gradient left to rightottom from $fff t0 transparency  */
-        //   background: linear-gradient(to left, #fff, transparent);
-        //   /* margin-top: 0.15rem; */
-        // }
-    }
+    // &::after {
+    //   content: "";
+    //   display: block;
+    //   width: 100%;
+    //   height: 0.05rem;
+    //   background-color: #fff;
+    //   /* make a gradient left to rightottom from $fff t0 transparency  */
+    //   background: linear-gradient(to left, #fff, transparent);
+    //   /* margin-top: 0.15rem; */
+    // }
+  }
 }
 
 h4,
 .h4 {
-    font-size: 2.75rem;
+  font-size: 2.75rem;
 }
 
 .welcome-text {
-    top: 9rem;
+  top: 9rem;
 }
 
 section.section-wrapper {
-    // margin-top: 4rem;
+  // margin-top: 4rem;
 
-    &.rounded-top {
-        position: relative;
-        padding-left: 7rem;
-        padding-right: 7rem;
-        min-height: 3000px;
+  &.rounded-top {
+    position: relative;
+    padding-left: 7rem;
+    padding-right: 7rem;
+    min-height: 3000px;
 
-        &:before {
-            top: -2.4375rem;
-            height: 2.5rem;
-            border-radius: 2.5rem 2.5rem 0 0;
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 3rem;
-            background-color: #fff;
-            z-index: 10;
-            content: "";
-        }
+    &:before {
+      top: -2.4375rem;
+      height: 2.5rem;
+      border-radius: 2.5rem 2.5rem 0 0;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 3rem;
+      background-color: #fff;
+      z-index: 10;
+      content: "";
     }
+  }
 }
 section.section-wrapper {
+  //   min-height: 200vh;
+  margin-bottom: 5rem;
+
+  &.fixed-height {
     // margin-top: 10rem;
-    min-height: 500vh;
+    min-height: 250vh;
+  }
 }
 
 @media screen and (min-width: 768px) {
-    h1,
-    .h1 {
-        font-size: 7rem;
-    }
+  h1,
+  .h1 {
+    font-size: 7rem;
+  }
 
-    section.section-wrapper {
-        // margin-top: 10rem;
-        min-height: 500vh;
-    }
+  section.section-wrapper {
+    // margin-top: 10rem;
+    margin-bottom: 10rem;
 
-    // h2 {
-    //   font-size: 4.5rem;
-    // }
+    &.fixed-height {
+      min-height: 500vh;
+    }
+  }
+
+  // h2 {
+  //   font-size: 4.5rem;
+  // }
 }
 
 /* h1 {
@@ -125,6 +134,6 @@ h3 {
 } */
 
 p {
-    font-size: 1.155rem;
-    line-height: 175%;
+  font-size: 1.155rem;
+  line-height: 175%;
 }

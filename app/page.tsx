@@ -26,6 +26,7 @@ import Typewriter from "./components/Typewriter";
 import ScrollPieChart from "./components/ScrollPieChart/ScrollPieChart";
 
 export default function Home() {
+  const [videoHeight, setVideoHeight] = useState(0);
   const [scrollDir, setScrollDir] = useState("down");
   const [isPageScrollTop, setIsPageScrollTop] = useState(true);
   const { scrollY, scrollYProgress } = useScroll();
@@ -47,23 +48,24 @@ export default function Home() {
   const scale = useTransform(
     scrollIntroText,
     [0, 0.25, 0.5, 0.85, 0.9, 0.95, 1],
-    [0, 1, 1, 1, 0.8, 0.1, 0]
+    [0, 0, 1, 1, 1, 1, 0]
   );
 
-  // console.log(
-  //   "CSS-Variable",
-  //   getComputedStyle(document.body).getPropertyValue("--video-height")
-  // );
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const updateVideoHeight = () => {
+      const height = parseFloat(
+        document.body.style.getPropertyValue("--video-height")
+      );
+      setVideoHeight(height); // Update state with the new height
+      console.log("Updated video height:", height); // Debugging log
+    };
 
-  let videoHeight =
-    getComputedStyle(document.body).getPropertyValue("--video-height") || 0;
+    updateVideoHeight();
+  }, []);
 
-  videoHeight = Number(videoHeight);
-
-  // const windowHeight = typeof window !== "undefined" ? window.innerHeight : 0;
-  // get document height
   const animateSectionHeight = animationSection1.current?.offsetHeight || 0;
-  // console.log("TEST", videoHeight);
+  console.log("TEST", videoHeight);
 
   // console.log(scrollYProgress);
   // console.log("hi", useTransform(scrollYProgress, [0, 1], [0, 1]));
@@ -73,10 +75,10 @@ export default function Home() {
     // [700, 1200, videoHeight, videoHeight + 500],
     [
       videoHeight,
-      videoHeight + 500,
+      videoHeight + 100,
       videoHeight,
-      videoHeight + animateSectionHeight - 200,
-      videoHeight + animateSectionHeight - 100,
+      videoHeight + animateSectionHeight - 400,
+      videoHeight + animateSectionHeight - 300,
     ],
     [0, 1, 1, 1, 0]
     // {
@@ -161,6 +163,9 @@ export default function Home() {
   if (inView && !inViewTrigger) {
     setInViewTrigger(true);
   }
+  // else if (!inView && inViewTrigger) {
+  //   setInViewTrigger(false);
+  // }
 
   isPageScrollTop && compWrapper.push(" scroll--page-top");
 
@@ -176,7 +181,7 @@ export default function Home() {
 
       <section
         ref={animationSection1}
-        className="section-wrapper flex align-center flex-col"
+        className="section-wrapper fixed-height flex align-center flex-col"
       >
         <div className="container mx-auto my-auto">
           <div className="mx-4">
@@ -197,17 +202,22 @@ export default function Home() {
                       <motion.div
                         initial={{ x: -100 }}
                         animate={{ x: 0 }}
-                        transition={{ duration: 1 }}
+                        transition={{
+                          duration: 1,
+                          type: "spring",
+                          bounce: 0.25,
+                          delay: 0,
+                        }}
                       >
                         <span>
-                          <Typewriter
+                          {/* <Typewriter
                             text="Welcome to"
                             delay={100}
                             infinite={false}
                             Class="block"
-                          />
+                          /> */}
                           <Typewriter
-                            text="MR P Motorsports"
+                            text="Welcome to MR P Motorsports"
                             delay={100}
                             infinite={false}
                           />
