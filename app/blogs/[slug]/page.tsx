@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <>
       <Link
         href="/blogs"
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="bg-blue-500 inline-block hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
         Back to Blogs
       </Link>
